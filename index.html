@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自制2分钟倒计时</title>
+</head>
+<body style="text-align: center">
+	<h1>2minutes倒计时</h1>
+	<input type="text" id="mi"><button onclick="count()">计时开始</button>
+</body>
+<script>
+function count(){
+	var i=2*60000;
+	var c=(i-60000)/1000-1;
+	document.getElementById("mi").value=2;
+	function dao(){
+		document.getElementById("mi").value="1:"+c;
+		c=c-1;
+		i=i-1000;
+		if(i==60000){
+          clearInterval(two);
+          var cc=59;
+          function ji(){
+          	document.getElementById("mi").value="0:"+cc;
+          	cc=cc-1;
+          	i=i-1000;
+          	if(i==0){
+          		clearInterval(one);
+          	}
+
+          };
+          var one=setInterval(ji,1000);
+		}
+	};
+	var two=setInterval(dao,1000);
+}
+</script>
+</html>
